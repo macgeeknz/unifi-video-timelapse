@@ -4,7 +4,7 @@ This repository is the reponse to a request for me to share my code after this p
 
 https://community.ubnt.com/t5/UniFi-Video-Stories/My-5-month-NVR-solution-for-two-G3-flex-cameas/cnc-p/2598278
 
-The tar file contains an empty folder and structure and symcbolic link, plus 4 shell scripts called snapshotter-via-api.sh, continuous-snapshots.sh, generateTimelapse.sh, and storage-purger.sh.
+The tar file contains an empty folder structure and symcbolic link, plus 4 shell scripts called snapshotter-via-api.sh, continuous-snapshots.sh, generateTimelapse.sh, and storage-purger.sh.
 
 The full list of pre-requisite steps you need to take to get this working all are as follows:
 
