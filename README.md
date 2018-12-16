@@ -1,2 +1,2 @@
 # unifi-video-timelapse
-Files overlay for Ubunti Unifi-Video NVR for timelapse (see readme)
+Files overlay for Ubiquiti Unifi-Video NVR on Ubuntu VM for timelapse (see readme)
