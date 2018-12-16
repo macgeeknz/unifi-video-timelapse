@@ -4,7 +4,7 @@ This repository is the reponse to a request for me to share my code after this p
 
 https://community.ubnt.com/t5/UniFi-Video-Stories/My-5-month-NVR-solution-for-two-G3-flex-cameas/cnc-p/2598278
 
-The tar file contains an empty folder and structure and symcbolid link, plus 4 shell scripts called snapshotter-via-api.sh, continuous-snapshots.sh, generateTimelapse.sh, and storage-purger.sh.
+The tar file contains an empty folder and structure and symcbolic link, plus 4 shell scripts called snapshotter-via-api.sh, continuous-snapshots.sh, generateTimelapse.sh, and storage-purger.sh.
 
 The full list of pre-requisite steps you need to take to get this working all are as follows:
 
@@ -13,7 +13,7 @@ The full list of pre-requisite steps you need to take to get this working all ar
  
 - run software updates:
 
-	apt update && apt upgrade
+	apt update && apt -y upgrade
 
 - set local timezone:
 
@@ -32,38 +32,28 @@ The full list of pre-requisite steps you need to take to get this working all ar
 
 - install unifi-video package and dependancies:
 
-	apt install unifi-video
+	apt -y install unifi-video
 
 - install ffmpeg
 
-	apt install ffmpeg
+	apt -y install ffmpeg
 
 - install jq
 
-	apt install jq
+	apt -y install jq
 
 - install imagemagick
 	
-	apt install imagemagick
+	apt -y install imagemagick
 
 - install apache2
 
-	apt install apache2
+	apt -y install apache2
 
-- Create the blank directory structure:
+- clone the tar file from this repository to the root-level of the VM and un-tar:
 
-	mkdir -p /timelapse/movies /timelapse/scratch/jpegs /timelapse/scratch/moviecreation
-
-- Create a symbolic link for apache:
-
-	ln -s /timelapse /var/www/html/
-
-- clone these from github(?):
-
-	/usr/local/bin/snapshotter-via-api.sh
-	/usr/local/bin/generateTimelapse.sh
-	/usr/local/bin/continuous-snapshots.sh
-	/usr/local/bin/storage-purger.sh
+	cd /root ; git clone https://www.github.com/macgeeknz/unifi-video-timelapse
+	cd / ; tar -xvf /root/unifi-video-timelapse/unifi-bundle.tar
 
 - log in to the NVR webUI & complete initial configuration:
 
@@ -85,7 +75,7 @@ The full list of pre-requisite steps you need to take to get this working all ar
 	[add the following two lines]
 	58 * * * * /usr/local/bin/storage-purger.sh
 	0 * * * * /usr/local/bin/generateTimelapse.sh
-	save
+	[save]
 
 - Append /usr/local/bin/continuous-snapshots.sh to the end of rc.local so that it launches at startup:
 
@@ -99,14 +89,15 @@ The full list of pre-requisite steps you need to take to get this working all ar
 
 - wait about 3-4 minutes for the VM to restart
 
-- connect to the VM trough apache and check that new still frames are being added here:
+- connect to the VM through apache and check that new still frames are being added here every 10 seconds:
 
 	http://nvr.vm.ip.address/timelapse/scratch/jpegs/
 
 - after an hour, connect to the VM through apache and check that the an MP4 was created:
 
-	- connect to the VM trough apache and check that new still frames are being added here:
+	- connect to the VM through apache and check that new still frames are being added here:
 
 	http://nvr.vm.ip.address/timelapse/movies/
 
-Note that the apache access is not encrypted, nor authenticated. Therefore anyone who knows where to look could view the contents of your timelapse folder. There are plenty of other tutorials on the 'net about how to achieve security in apache so the steps for that are not covered here.
+# Note that the apache access is not encrypted, nor authenticated.
+Anyone who knows where to look could view the contents of your timelapse folder! There are plenty of other tutorials on the 'net about how to achieve security in apache so the steps for that are not covered here.
