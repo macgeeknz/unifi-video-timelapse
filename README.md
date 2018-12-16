@@ -18,6 +18,7 @@ The full list of pre-requisite steps you need to take to get this working all ar
 - set local timezone:
 
 	dpkg-reconfigure tzdata
+	
 	[set timezone]
 
 - start NTP:
@@ -27,7 +28,9 @@ The full list of pre-requisite steps you need to take to get this working all ar
 - add the unifi repository:
 
 	echo "deb [arch=amd64] http://www.ubnt.com/downloads/unifi-video/apt-3.x xenial ubiquiti" > /etc/apt/sources.list.d/unifi-video.list
+	
 	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 97B46B8582C6571E
+	
 	apt update
 
 - install unifi-video package and dependancies:
@@ -53,6 +56,7 @@ The full list of pre-requisite steps you need to take to get this working all ar
 - clone the tar file from this repository to the root-level of the VM and un-tar:
 
 	cd /root ; git clone https://www.github.com/macgeeknz/unifi-video-timelapse
+	
 	cd / ; tar -xvf /root/unifi-video-timelapse/unifi-bundle.tar
 
 - log in to the NVR webUI & complete initial configuration:
@@ -72,20 +76,27 @@ The full list of pre-requisite steps you need to take to get this working all ar
 - Back on the the VM console again, edit /usr/local/bin/snapshotter-via-api.sh to contain your NVR admin username & password
 
 	username="YOUR-USERNAME"
+	
 	password="YOUR-PASSWORD"
 
 - Create crontab entries to trigger creating the movies every hour and cleaning up old files
 
 	crontab -e
+	
 	[add the following two lines]
+	
 	58 * * * * /usr/local/bin/storage-purger.sh
+	
 	0 * * * * /usr/local/bin/generateTimelapse.sh
+	
 	[save]
 
 - Append /usr/local/bin/continuous-snapshots.sh to the end of rc.local so that it launches at startup:
 
 	echo "#!/bin/sh -e" > /etc/rc.local
+	
 	echo "sleep 30 ; /usr/local/bin/continuous-snapshots.sh &" >> /etc/rc.local
+	
 	echo "exit 0" >> /etc/rc.local
 
 - reboot the VM
