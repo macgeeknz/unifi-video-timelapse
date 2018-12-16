@@ -7,21 +7,37 @@ https://community.ubnt.com/t5/UniFi-Video-Stories/My-5-month-NVR-solution-for-tw
 Inside the tar file is this folder structure and 4 shell scripts:
 
 /timelapse
+
 /timelapse/movies
+
 /timelapse/scratch
+
 /timelapse/scratch/jpegs
+
 /timelapse/scratch/moviecreation
+
 /usr
+
 /usr/local
+
 /usr/local/bin
+
 /usr/local/bin/continuous-snapshots.sh
+
 /usr/local/bin/generateTimelapse.sh
+
 /usr/local/bin/snapshotter-via-api.sh
+
 /usr/local/bin/storage-purger.sh
+
 /var
+
 /var/www
+
 /var/www/html
+
 /var/www/html/timelapse
+
 
 The pre-requisites to this working are as follows:
 
