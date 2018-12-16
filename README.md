@@ -1,10 +1,16 @@
 # unifi-video-timelapse
-This archive contains the files overlay for Ubiquiti Unifi-Video NVR on Ubuntu VM for timelapse.
 
-These are the pre-requisite steps I used to create a Unifi-Video NVR running on a USD$5/month Linode VM:
+This repository is the reponse to a request for me to share my code after this posting on the Ubiquity Unifi-Video forums:
+
+https://community.ubnt.com/t5/UniFi-Video-Stories/My-5-month-NVR-solution-for-two-G3-flex-cameas/cnc-p/2598278
+
+The tar file contains an empty folder and structure and symcbolid link, plus 4 shell scripts called snapshotter-via-api.sh, continuous-snapshots.sh, generateTimelapse.sh, and storage-purger.sh.
+
+The full list of pre-requisite steps you need to take to get this working all are as follows:
 
 - sign up to Linode, create a new 'nanode' VM using their Ubuntu 16.04 LTS template, then log in via SSH
-
+ (note - any hosting platform will work; I use Linode becuase they have free inbound traffic - perfect for an NVR)
+ 
 - run software updates:
 
 	apt update && apt upgrade
