@@ -4,42 +4,9 @@ This repository is the reponse to a request for me to share my code after this p
 
 https://community.ubnt.com/t5/UniFi-Video-Stories/My-5-month-NVR-solution-for-two-G3-flex-cameas/cnc-p/2598278
 
-Inside the tar file is this folder structure and 4 shell scripts:
+The tar file contains an empty folder and structure and symcbolid link, plus 4 shell scripts called snapshotter-via-api.sh, continuous-snapshots.sh, generateTimelapse.sh, and storage-purger.sh.
 
-/timelapse
-
-/timelapse/movies
-
-/timelapse/scratch
-
-/timelapse/scratch/jpegs
-
-/timelapse/scratch/moviecreation
-
-/usr
-
-/usr/local
-
-/usr/local/bin
-
-/usr/local/bin/continuous-snapshots.sh
-
-/usr/local/bin/generateTimelapse.sh
-
-/usr/local/bin/snapshotter-via-api.sh
-
-/usr/local/bin/storage-purger.sh
-
-/var
-
-/var/www
-
-/var/www/html
-
-/var/www/html/timelapse
-
-
-The pre-requisites to this working are as follows:
+The full list of pre-requisite steps you need to take to get this working all are as follows:
 
 - sign up to Linode, create a new 'nanode' VM using their Ubuntu 16.04 LTS template, then log in via SSH
  (note - any hosting platform will work; I use Linode becuase they have free inbound traffic - perfect for an NVR)
