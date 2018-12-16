@@ -58,10 +58,15 @@ The full list of pre-requisite steps you need to take to get this working all ar
 - log in to the NVR webUI & complete initial configuration:
 
 	https://nvr.vm.ip.address:7443/
+	
 	Log in, accept ToS, create admin account
+	
 	Connect camera via normal methods & make sure live view works
+	
 	(ie configure camera with NVR server IP & adoption token)
+	
 	Cameras -> [Camera Name] -> Recording -> Record Mode = "Record only motion" 
+	
 	Settings -> System Configuration -> set 'Space To Keep Free' slider to 10GB (smallest) -> Save
 
 - Back on the the VM console again, edit /usr/local/bin/snapshotter-via-api.sh to contain your NVR admin username & password
