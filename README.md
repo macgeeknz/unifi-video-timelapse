@@ -52,6 +52,10 @@ The full list of pre-requisite steps you need to take to get this working all ar
 - install apache2
 
 	apt -y install apache2
+	
+- install curl
+
+	apt -y install curl
 
 - clone the tar file from this repository to the root-level of the VM and un-tar:
 
